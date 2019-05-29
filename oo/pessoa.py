@@ -12,11 +12,23 @@ if __name__ == "__main__":
     ciclano = Pessoa(nome='Ciclano')
     thiago = Pessoa(fulano, ciclano, nome='Thiago', idade=27)
 
+    # Chamada de Métodos
     print(Pessoa.cumprimentar(thiago))
     print(thiago.cumprimentar())
     print(id(thiago))
 
+    # Atributos de Instância
     print(thiago.nome)
     print(thiago.idade)
+
+    # Atributo Complexo
     for filho in thiago.filhos:
         print(filho.nome)
+    
+    # Atributo Dinâmico (Adicionado em Tempo de Execução)
+    thiago.sobrenome = 'Rodrigues'
+    print(thiago.sobrenome)
+    print(thiago.__dict__, end='\n\n')
+    print(fulano.__dict__, end='\n\n')
+    del thiago.sobrenome
+    print(thiago.__dict__, end='\n\n')
