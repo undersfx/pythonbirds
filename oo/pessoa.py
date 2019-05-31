@@ -1,4 +1,7 @@
 class Pessoa:
+    #Atributo de Classe
+    olhos = 2
+
     def __init__(self, *filhos, nome=None, idade=None):
         self.nome = nome
         self.idade = idade
@@ -28,7 +31,16 @@ if __name__ == "__main__":
     # Atributo Dinâmico (Adicionado em Tempo de Execução)
     thiago.sobrenome = 'Rodrigues'
     print(thiago.sobrenome)
-    print(thiago.__dict__, end='\n\n')
-    print(fulano.__dict__, end='\n\n')
+    print(thiago.__dict__)
+    print(fulano.__dict__)
     del thiago.sobrenome
-    print(thiago.__dict__, end='\n\n')
+    print(thiago.__dict__)
+
+    #Atributo de Classe
+    print(Pessoa.olhos)
+    print(thiago.olhos)
+    print(thiago.__dict__)
+    thiago.olhos = 1
+    print(thiago.__dict__)
+    del thiago.olhos
+    print(thiago.olhos)
