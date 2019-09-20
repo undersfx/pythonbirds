@@ -39,31 +39,31 @@ Exemplos:
 # Doctest Direção
 >>> direcao = Direcao()
 >>> direcao.valor
-"Norte"
+'Norte'
 >>> direcao.virar_a_direita()
 >>> direcao.valor
-"Leste"
+'Leste'
 >>> direcao.virar_a_direita()
 >>> direcao.valor
-"Sul"
+'Sul'
 >>> direcao.virar_a_direita()
 >>> direcao.valor
-"Oeste"
+'Oeste'
 >>> direcao.virar_a_direita()
 >>> direcao.valor
-"Norte"
+'Norte'
 >>> direcao.virar_a_esquerda()
 >>> direcao.valor
-"Oeste"
+'Oeste'
 >>> direcao.virar_a_esquerda()
 >>> direcao.valor
-"Sul"
+'Sul'
 >>> direcao.virar_a_esquerda()
 >>> direcao.valor
-"Leste"
+'Leste'
 >>> direcao.virar_a_esquerda()
 >>> direcao.valor
-"Norte"
+'Norte'
 
 # Dcotest Carro
 >>> carro = Carro(direcao, motor)
@@ -79,16 +79,16 @@ Exemplos:
 >>> carro.calcular_velocidade()
 0
 >>> carro.calcular_direção()
-"Norte"
+'Norte'
 >>> carro.virar_a_direita()
 >>> carro.calcular_direção()
-"Leste"
+'Leste'
 >>> carro.virar_a_esquerda()
 >>> carro.calcular_direção()
-"Norte"
+'Norte'
 >>> carro.virar_a_esquerda()
 >>> carro.calcular_direção()
-"Oeste"
+'Oeste'
 
 """
 
@@ -103,3 +103,16 @@ class Motor:
             self.velocidade -= decremento
         else:
             self.velocidade = 0
+
+class Direcao:
+    valor = "Norte"
+    direcoes = ("Norte", "Leste", "Sul", "Oeste")
+
+    def virar_a_direita(self):
+        i = (self.direcoes.index(self.valor) + 1) % 4
+        self.valor = self.direcoes[i]
+    
+    def virar_a_esquerda(self):
+        i = self.direcoes.index(self.valor) - 1
+        if i < 0: i + 4
+        self.valor = self.direcoes[i]
