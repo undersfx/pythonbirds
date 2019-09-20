@@ -1,3 +1,8 @@
+"""
+    Sandbox para brincar com conceitos de classes em Python
+"""
+
+
 class Pessoa:
     # Atributo de Dado (Classe)
     olhos = 2
@@ -11,7 +16,7 @@ class Pessoa:
 
     # Método
     def cumprimentar(self):
-        return f'Olá {id(self)}'
+        return f'Olá meu nome é {self.nome}'
 
     # Método Estático
     @staticmethod
@@ -23,11 +28,16 @@ class Pessoa:
     def metodo_de_classe(cls):
         return f'Classe: {cls}, olhos: {cls.olhos}'
 
-class Homem(Pessoa):
-    pass
 
-class Mutante(Pessoa):
+class Mutante(Pessoa): # Herança
+    # Sobrescrita de Atributo de dado
     olhos = 3
+
+class Homem(Pessoa):
+    # Sobrescrita de método
+    def cumprimentar(self):
+        cumprimento_de_classe = super().cumprimentar() # Executar método da classe Pai
+        return f'{cumprimento_de_classe}. Aperto de mão.'
 
 if __name__ == "__main__":
     #Testes
@@ -86,3 +96,7 @@ if __name__ == "__main__":
     print(renzo.olhos)
     mutante = Mutante(nome='Mutante')
     print(mutante.olhos, '\n')
+
+    # Sobrescrita de Método
+    print(renzo.cumprimentar())
+    print(mutante.cumprimentar())
