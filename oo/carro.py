@@ -93,29 +93,28 @@ Exemplos:
 """
 
 class Motor:
-    velocidade = 0
+    def __init__(self):
+        self.velocidade = 0
 
     def acelerar(self, incremento=1):
         self.velocidade += incremento
 
     def frear(self, decremento=2):
-        if self.velocidade >= 2:
-            self.velocidade -= decremento
-        else:
-            self.velocidade = 0
+        self.velocidade = max(0, self.velocidade - decremento)
 
 class Direcao:
-    valor = "Norte"
-    direcoes = ("Norte", "Leste", "Sul", "Oeste")
+    DIRECOES = ("Norte", "Leste", "Sul", "Oeste")
+
+    def __init__(self):
+        self.valor = self.DIRECOES[0]
 
     def virar_a_direita(self):
-        i = (self.direcoes.index(self.valor) + 1) % 4
-        self.valor = self.direcoes[i]
+        i = (self.DIRECOES.index(self.valor) + 1) % len(self.DIRECOES)
+        self.valor = self.DIRECOES[i]
     
     def virar_a_esquerda(self):
-        i = self.direcoes.index(self.valor) - 1
-        if i < 0: i + 4
-        self.valor = self.direcoes[i]
+        i = (self.DIRECOES.index(self.valor) - 1) % len(self.DIRECOES)
+        self.valor = self.DIRECOES[i]
 
 class Carro:
     def __init__(self, direcao, motor):
