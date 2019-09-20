@@ -23,6 +23,9 @@ class Pessoa:
     def metodo_de_classe(cls):
         return f'Classe: {cls}, olhos: {cls.olhos}'
 
+class Homem(Pessoa):
+    pass
+
 if __name__ == "__main__":
     #Testes
     fulano = Pessoa(nome='Fulano')
@@ -67,3 +70,11 @@ if __name__ == "__main__":
     # Métodos de Classe
     print(Pessoa.metodo_de_classe())
     print(thiago.metodo_de_classe(), '\n')
+
+    #Classe Herdeira de Pessoa
+    renzo = Homem(nome='Renzo')
+    luciano = Pessoa(nome='Luciano')
+    print(isinstance(renzo, Pessoa))
+    print(isinstance(renzo, Homem))
+    print(isinstance(luciano, Pessoa))
+    print(isinstance(luciano, Homem))
