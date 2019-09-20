@@ -116,3 +116,32 @@ class Direcao:
         i = self.direcoes.index(self.valor) - 1
         if i < 0: i + 4
         self.valor = self.direcoes[i]
+
+class Carro:
+    def __init__(self, direcao, motor):
+        self.direcao = direcao
+        self.motor = motor
+
+    def calcular_velocidade(self):
+        return self.motor.velocidade
+    
+    def acelerar(self, incremento=None):
+        if incremento:
+            self.motor.acelerar(incremento)
+        else:
+            self.motor.acelerar()
+
+    def frear(self, decremento=None):
+        if decremento:
+            self.motor.frear(decremento)
+        else:
+            self.motor.frear()
+        
+    def calcular_direção(self):
+        return self.direcao.valor
+
+    def virar_a_direita(self):
+        self.direcao.virar_a_direita()
+    
+    def virar_a_esquerda(self):
+        self.direcao.virar_a_esquerda()
