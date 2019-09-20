@@ -26,6 +26,9 @@ class Pessoa:
 class Homem(Pessoa):
     pass
 
+class Mutante(Pessoa):
+    olhos = 3
+
 if __name__ == "__main__":
     #Testes
     fulano = Pessoa(nome='Fulano')
@@ -71,10 +74,15 @@ if __name__ == "__main__":
     print(Pessoa.metodo_de_classe())
     print(thiago.metodo_de_classe(), '\n')
 
-    #Classe Herdeira de Pessoa
+    # Classe Herdeira de Pessoa
     renzo = Homem(nome='Renzo')
     luciano = Pessoa(nome='Luciano')
     print(isinstance(renzo, Pessoa))
     print(isinstance(renzo, Homem))
     print(isinstance(luciano, Pessoa))
-    print(isinstance(luciano, Homem))
+    print(isinstance(luciano, Homem), '\n')
+
+    # Sobrescrita de Atributo
+    print(renzo.olhos)
+    mutante = Mutante(nome='Mutante')
+    print(mutante.olhos, '\n')
