@@ -9,13 +9,9 @@ Atributos de dado: Velocidade
 Métodos: Acelerar (+1 velocidade), Frear (-2 velocidade)
 
 Direção: Controlar a direção do carro.
-Atributos de dado: Direção 
-
-4 pontos:
-  N
-O   L
-  S
-
+Atributos de dado: Direção 4 pontos:  N
+                                    O   L
+                                      S
 Métodos: Virar a Direita, Virar a Esquerda
 
 Exemplos:
@@ -95,3 +91,15 @@ Exemplos:
 "Oeste"
 
 """
+
+class Motor:
+    velocidade = 0
+
+    def acelerar(self, incremento=1):
+        self.velocidade += incremento
+
+    def frear(self, decremento=2):
+        if self.velocidade >= 2:
+            self.velocidade -= decremento
+        else:
+            self.velocidade = 0
