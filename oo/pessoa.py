@@ -20,12 +20,12 @@ class Pessoa:
 
     # Método Estático
     @staticmethod
-    def metodo_estatico(): # Independe de self (Instância)
+    def metodo_estatico(): # Independe de Instância (self)
         return 42
     
     # Método de Classe
     @classmethod
-    def metodo_de_classe(cls):
+    def metodo_de_classe(cls): # Tem acesso a classe da Instância (cls)
         return f'Classe: {cls}, olhos: {cls.olhos}'
 
 
